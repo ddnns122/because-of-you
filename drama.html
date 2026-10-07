@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8f8f6"><title>欢迎来到熙敬戏剧节</title>
+<meta name="description" content="帷幕落下，掌声响起。熙敬戏剧节舞台影像。">
+<link rel="stylesheet" href="drama.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23161616'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='23' fill='white'%3E熙%3C/text%3E%3C/svg%3E">
+</head>
+<body class="is-opening" data-opening-phase="text">
+<div class="opening-copy" id="openingCopy" aria-live="off"><p><span>欢迎来到熙敬戏剧节。</span><span>帷幕落下，掌声响起。</span></p></div>
+<button class="opening-skip" id="openingSkip" type="button" hidden>跳过开场</button>
+<header class="drama-nav"><a class="wordmark" href="index.html#events">熙敬戏剧节</a><span class="nav-edition">XIJING / THEATRE</span><a class="return-link" href="index.html#events">返回书院</a></header>
+<main>
+  <div class="drama-heading"><p class="edition">A MOMENT ON STAGE</p><h1>欢迎来到熙敬戏剧节</h1><p class="drama-line">帷幕落下，掌声响起。</p></div>
+  <section class="exhibition" aria-label="戏剧节影像展，共十张照片">
+    <div class="scene" id="scene" tabindex="0" role="region" aria-roledescription="轮播图" aria-label="左右拖动或使用方向键切换照片">
+      <div class="scene-camera" id="sceneCamera"><button class="scene-photo" type="button" data-index="0" aria-label="展开第 1 张：聚光灯下的舞台表演" tabindex="0"><img src="drama-01.jpg" width="1536" height="1024" alt="聚光灯下的舞台表演" draggable="false" decoding="async" fetchpriority=high></button><button class="scene-photo" type="button" data-index="1" aria-label="展开第 2 张：沙发上的独白" tabindex="-1"><img src="drama-02.jpg" width="1920" height="1280" alt="沙发上的独白" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="2" aria-label="展开第 3 张：舞台上的群像" tabindex="-1"><img src="drama-03.jpg" width="1920" height="1280" alt="舞台上的群像" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="3" aria-label="展开第 4 张：聚光灯下的身影" tabindex="-1"><img src="drama-04.jpg" width="1024" height="1536" alt="聚光灯下的身影" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="4" aria-label="展开第 5 张：角色间的对话" tabindex="-1"><img src="drama-05.jpg" width="1920" height="1280" alt="角色间的对话" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="5" aria-label="展开第 6 张：课桌旁的演出" tabindex="-1"><img src="drama-06.jpg" width="1920" height="1280" alt="课桌旁的演出" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="6" aria-label="展开第 7 张：舞台上的两人对话" tabindex="-1"><img src="drama-07.jpg" width="1024" height="1536" alt="舞台上的两人对话" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="7" aria-label="展开第 8 张：演出后的合影" tabindex="-1"><img src="drama-08.jpg" width="1536" height="1152" alt="演出后的合影" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="8" aria-label="展开第 9 张：观众与演员的大合影" tabindex="-1"><img src="drama-09.jpg" width="1536" height="1024" alt="观众与演员的大合影" draggable="false" decoding="async" ></button><button class="scene-photo" type="button" data-index="9" aria-label="展开第 10 张：谢幕时的集体合影" tabindex="-1"><img src="drama-10.jpg" width="1440" height="1080" alt="谢幕时的集体合影" draggable="false" decoding="async" ></button></div>
+    </div>
+    <div class="gallery-caption"><span class="frame-index" id="frameIndex" aria-live="polite">01 / 10</span><button class="expand-control" id="expandPhoto" type="button">展开影像</button></div>
+    <div class="gallery-controls"><button id="previousPhoto" type="button" aria-label="上一张照片">上一张</button><p>拖动浏览 · 点击展开</p><button id="nextPhoto" type="button" aria-label="下一张照片">下一张</button></div>
+  </section>
+</main>
+<footer class="drama-footer"><span>熙敬书院</span><span>帷幕落下，掌声响起。</span><span>THEATRE / MEMORIES</span></footer>
+<dialog class="photo-viewer" id="photoViewer" aria-label="戏剧节照片大图">
+  <div class="viewer-toolbar"><span id="viewerCount">01 / 10</span><button id="closeViewer" type="button" aria-label="关闭大图">关闭 <span aria-hidden="true">×</span></button></div>
+  <div class="viewer-image-wrap"><img id="viewerImage" alt=""></div>
+  <div class="viewer-controls"><button id="viewerPrevious" type="button">上一张</button><p id="viewerCaption"></p><button id="viewerNext" type="button">下一张</button></div>
+</dialog>
+<noscript><style>.is-opening .opening-copy{display:none}.is-opening{overflow:auto}.is-opening .drama-nav,.is-opening .drama-heading,.is-opening .gallery-caption,.is-opening .gallery-controls,.is-opening .drama-footer{opacity:1;pointer-events:auto}</style></noscript>
+<script src="drama.js"></script>
+</body></html>

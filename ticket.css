@@ -1,0 +1,57 @@
+/* Compact event list; theatre ticket lives in the dialog top layer. */
+#events{padding-top:80px;padding-bottom:80px}
+#events .expandable-events{margin-top:30px}
+#events .event-toggle,#events .event-card.is-open .event-toggle{min-height:104px;padding:22px 0;grid-template-columns:58px 1fr 38px}
+#events .event-title{gap:5px}
+#events .event-title strong{font-size:34px}
+#events .event-toggle:before{font-size:16px}
+#events .event-toggle .card-arrow:before{font-size:30px}
+#events .drama-event .event-title small{color:#c5ad8e}
+#events .drama-event .event-toggle:hover .event-title strong{color:#e0c6a4}
+body.ticket-open{overflow:hidden}
+.ticket-dialog{position:fixed;inset:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:#eee9e1;overflow:hidden}
+.ticket-dialog::backdrop{background:rgba(2,7,12,.48);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.ticket-dialog[open]{display:grid;place-items:center}
+.ticket-content{position:relative;z-index:2;width:min(560px,82vw);text-align:center;perspective:1200px;padding:20px 0}
+.ticket-kicker{margin:0 0 35px;font-size:12px;font-weight:400;letter-spacing:.24em;color:#c8c0b6;opacity:0;animation:ticket-label-in .6s .3s forwards}
+.ticket-arrival{transform-style:preserve-3d;animation:ticket-arrive 1.05s cubic-bezier(.18,.8,.24,1) both}
+.ticket-plane{position:relative;transform-style:preserve-3d;transform:rotateX(8deg) rotateY(-7deg) rotateZ(-5deg);will-change:transform;transition:transform .7s cubic-bezier(.2,.85,.2,1);filter:drop-shadow(0 36px 22px rgba(0,0,0,.46)) drop-shadow(0 3px 1px rgba(0,0,0,.4))}
+.paper-ticket{display:block;width:100%;height:auto;overflow:visible;user-select:none;-webkit-user-select:none;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+.ticket-ink{transition:opacity .5s ease}
+.ticket-tear{position:absolute;inset:0 0 0 auto;width:25%;height:100%;border:0;border-radius:0 12px 12px 0;background:transparent;cursor:grab;touch-action:none;-webkit-tap-highlight-color:transparent}
+.ticket-tear:active{cursor:grabbing}
+.ticket-tear:focus-visible{outline:2px solid #6c452b;outline-offset:-9px}
+.ticket-hint{margin:40px 0 3px;font-size:16px;font-weight:400;letter-spacing:.13em;opacity:0;animation:ticket-label-in .6s .5s forwards}
+.ticket-help{font-size:12px;color:#a8a6a0;letter-spacing:.03em;margin:0;opacity:0;animation:ticket-label-in .6s .6s forwards}
+.ticket-close{position:absolute;z-index:4;right:max(24px,env(safe-area-inset-right));top:max(24px,env(safe-area-inset-top));display:flex;align-items:center;gap:12px;min-height:44px;padding:6px 16px;border:1px solid #ffffff20;border-radius:30px;background:#ffffff09;color:#d5d2cc;font:inherit;font-size:14px;cursor:pointer;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.ticket-close span{font-size:22px;font-weight:300}
+.ticket-close:hover{background:#ffffff14}
+.ticket-portal{position:absolute;inset:0;pointer-events:none;background:#11100e;opacity:0;transition:opacity .8s ease}
+.ticket-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.ticket-dialog.is-torn .ticket-tear{pointer-events:none}
+.ticket-dialog.is-torn .ticket-help{opacity:0;animation:none}
+.ticket-dialog.is-complete .ticket-plane{transform:translateY(25px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.12)!important;filter:drop-shadow(0 22px 30px #0006)}
+.ticket-dialog.is-complete .ticket-hint{margin-top:16px;animation:none;opacity:1}
+.ticket-dialog.is-complete .ticket-kicker{opacity:.65;animation:none}
+.ticket-dialog.is-complete .ticket-portal{opacity:.55}
+.ticket-replay{margin:18px auto 0;min-height:44px;padding:10px 22px;background:#ffffff09;border:1px solid #d8bd9940;border-radius:30px;color:#e0cbae;font:inherit;font-size:14px;cursor:pointer}
+.ticket-replay[hidden]{display:none}
+.ticket-replay:hover{background:#d8bd9918}
+.ticket-dialog.is-closing .ticket-content{opacity:0;transform:translateY(30px);transition:opacity .25s,transform .3s}
+@keyframes ticket-arrive{0%{opacity:0;transform:translate3d(0,72vh,-260px) rotateX(65deg) rotateZ(14deg) scale(.78)}65%{opacity:1;transform:translate3d(0,-22px,24px) rotateX(-4deg) rotateZ(-2deg) scale(1.025)}100%{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes ticket-label-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){#events{padding-top:64px;padding-bottom:64px}#events .event-toggle,#events .event-card.is-open .event-toggle{min-height:94px;padding:18px 0;grid-template-columns:40px 1fr 28px;gap:12px}#events .event-title strong{font-size:29px}#events .event-title small{font-size:12px}#events .event-detail,#events .event-card.is-open .event-detail{padding-left:52px}.ticket-content{width:86vw;max-width:560px}.ticket-plane{transform:rotateX(7deg) rotateY(-5deg) rotateZ(-4deg)}.ticket-kicker{margin-bottom:32px}.ticket-hint{font-size:14px;margin-top:36px}.ticket-help{font-size:12px}.ticket-close{top:18px;right:18px}.ticket-dialog.is-complete .ticket-plane{transform:translateY(12px) scale(1.06)!important}}
+@media(max-height:550px){.ticket-content{width:min(440px,64vw)}.ticket-kicker{margin-bottom:12px}.ticket-hint{margin-top:20px}.ticket-replay{margin-top:8px}.ticket-dialog.is-complete .ticket-plane{transform:scale(1.02)!important}}
+@media(prefers-reduced-motion:reduce){.ticket-dialog *, .ticket-dialog *:before{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.ticket-plane{transform:none}.ticket-dialog.is-complete .ticket-plane{transform:none!important}}
+
+/* Expand the torn ticket into the light exhibition. */
+.ticket-dialog.is-entering .ticket-plane{transform:translateY(10vh) scale(var(--entry-scale,12))!important;transition:transform 1.1s cubic-bezier(.65,0,.25,1),filter .9s;filter:none}
+.ticket-dialog.is-entering .ticket-ink{opacity:0;transition:opacity .25s}
+.ticket-dialog.is-entering .ticket-kicker,.ticket-dialog.is-entering .ticket-hint,.ticket-dialog.is-entering .ticket-help,.ticket-dialog.is-entering .ticket-close{opacity:0;animation:none;pointer-events:none;transition:opacity .2s}
+.ticket-dialog.is-entering .ticket-portal{background:#f8f8f6;opacity:1;transition:opacity .8s .15s}
+.ticket-dialog.is-entering:after{content:'';position:fixed;inset:0;z-index:5;pointer-events:none;background:#f8f8f6;animation:gallery-handoff 1.05s both}
+@keyframes gallery-handoff{0%,50%{opacity:0}100%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.ticket-dialog.is-entering .ticket-plane{transform:none!important}.ticket-dialog.is-entering:after{animation:none;opacity:1}}
+
+.ticket-dialog.is-held .ticket-tear{cursor:grabbing}
+.ticket-dialog.is-held .ticket-hint,.ticket-dialog.is-held .ticket-help{animation:none;opacity:1}
